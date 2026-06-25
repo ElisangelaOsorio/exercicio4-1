@@ -46,5 +46,10 @@ autograde validar 4.1
 
 ## Decisões de implementação
 
-_Explique brevemente: por que esse framework, como você modelou o store, como
-tratou o 404, etc._
+**Por que FastAPI?** Escolhi o FastAPI porque ele facilita bastante a criação de APIs em Python. Ele já se responsabiliza por validar os dados que chegam nas requisições e gera uma documentação automática que ajuda a testar os endpoints pelo navegador.
+
+**Como as tarefas são guardadas?** As tarefas ficam salvas em um dicionário Python na memória. Cada tarefa recebe um ID numérico que vai aumentando (1, 2, 3...). Como o exercício pede, tudo zera quando a API é reiniciada — não tem banco de dados, e isso é proposital para o autograder funcionar com estado limpo.
+
+**Como separei os dados de entrada?** Criei dois modelos: um para criação (que recebe só o `titulo`) e outro para atualização (que recebe `titulo` e `concluida`). Assim cada endpoint aceita só o que precisa.
+
+**E quando a tarefa não existe?** Nos endpoints de buscar e atualizar uma tarefa por ID, se o ID não existir no dicionário, a API retorna erro 404 com a mensagem "Tarefa não encontrada", como o contrato do exercício pede.
