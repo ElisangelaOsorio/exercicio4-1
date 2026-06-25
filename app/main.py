@@ -1,3 +1,13 @@
+"""
+API REST para gerenciamento de tarefas (TODO list).
+
+Permite criar, listar, consultar e atualizar tarefas através dos seguintes endpoints:
+  - POST   /tarefas            → cria uma nova tarefa
+  - GET    /tarefas            → lista todas as tarefas
+  - GET    /tarefas/{tarefa_id} → consulta uma tarefa pelo ID
+  - PUT    /tarefas/{tarefa_id} → atualiza título e status de conclusão de uma tarefa
+"""
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
